@@ -8,20 +8,20 @@ The program simulates an RPG-style game where a player battles enemies and manag
 ## Class Hierarchy
 
 **Items**
-- `Item` — base class with name, weight, value
-- `Weapon` — extends Item, adds damage stat
-- `Armor` — extends Item, adds defense and equipment slot
-- `Potion` — extends Item, adds heal amount and consumed state
+- Item — base class with name, weight, value
+- Weapon — extends Item, adds damage stat
+- Armor — extends Item, adds defense and equipment slot
+- Potion — extends Item, adds heal amount and consumed state
 
 **Enemies**
-- `Enemy` — base class with health, damage, virtual attack method
-- `Dragon` — alternates between fire breath (3x damage) and normal attack
-- `Goblin` — deals double damage if armed with a weapon
-- `Skeleton` — enemy with armor-based damage reduction
+- Enemy — base class with health, damage, virtual attack method
+- Dragon — alternates between fire breath (3x damage) and normal attack
+- Goblin — deals double damage if armed with a weapon
+- Skeleton — enemy with armor-based damage reduction
 
 **Other**
-- `Player` — has health and attack power, takes damage in combat
-- `Inventory` — manages a weight-limited collection of Item pointers with dynamic memory
+- Player — has health and attack power, takes damage in combat
+- Inventory — manages a weight-limited collection of Item pointers with dynamic memory
 
 ## Key C++ Concepts Demonstrated
 - Inheritance and virtual functions
