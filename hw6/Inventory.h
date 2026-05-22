@@ -74,7 +74,7 @@ public:
 
     void printInventory() const
     {
-        std::cout << "Inventory (" << getCount()
+        std::cout << " Inventory (" << getCount()
                   << " items, W: " << getTotalWeight()
                   << ", V: " << getTotalValue() << "):\n";
 

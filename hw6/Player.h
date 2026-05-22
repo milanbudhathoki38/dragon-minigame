@@ -12,7 +12,6 @@ private:
     int _attackPower;
 
 public:
-
     Player(const std::string &name, int health, int attackPower)
         : _name(name), _health(health), _attackPower(attackPower) {}
 
@@ -23,6 +22,14 @@ public:
         _health -= amount;
         if (_health < 0)
             _health = 0;
+    }
+
+    void heal(int amount)
+    {
+        _health += amount;
+
+        if (_health > 100)
+            _health = 100;
     }
 
     bool isAlive() const { return _health > 0; }

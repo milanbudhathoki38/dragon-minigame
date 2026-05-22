@@ -10,10 +10,11 @@ protected:
     int _armorRating;
 
 public:
-
     Skeleton(const std::string &name, int health, int baseDamage, int armorRating)
-    
-        : Enemy(name, health, baseDamage), _armorRating(armorRating) {}
+
+        : Enemy(name, health, baseDamage), _armorRating(armorRating)
+    {
+    }
 
     void takeDamage(int amount) override
     {
@@ -33,6 +34,7 @@ public:
             << ", ARM: " << _armorRating << "]";
         return oss.str();
     }
+
 };
 
 #endif

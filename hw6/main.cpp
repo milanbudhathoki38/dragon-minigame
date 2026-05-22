@@ -38,12 +38,11 @@ int main()
     std::cout << " Inventory Test: Polymorphic Storage \n";
     Inventory inv(20.0);
 
-    
     Weapon *sword = new Weapon("Iron Sword", 5.2, 150, 25);
     Potion *potion = new Potion("Health Potion", 0.5, 30, 50);
     Armor *chestplate = new Armor("Iron Chestplate", 12.0, 500, 8, "chest");
 
-   // Add the items to the inventory
+    // Add the items to the inventory
     inv.addItem(sword);
     inv.addItem(potion);
     inv.addItem(chestplate);
@@ -51,28 +50,36 @@ int main()
     inv.printInventory();
     std::cout << "\n";
 
-    std::cout << "Weight Limit Enforcement \n";
+    std::cout << " Weight Limit Enforcement \n";
     Weapon *heavyWeapon = new Weapon("Giant Axe", 10.0, 500, 50);
     if (!inv.addItem(heavyWeapon))
     {
-        std::cout << "Could not add " << heavyWeapon->getName() << " due to weight limit.\n";
+        std::cout << " Could not add " << heavyWeapon->getName() << " due to weight limit.\n";
         delete heavyWeapon;
     }
     std::cout << "\n";
 
-    std::cout << "=== Remove Item Test ===\n";
-    inv.removeItem("Health Potion");
+    std::cout << " === Remove Item Test ===\n";
+    // inv.removeItem("Health Potion");
     inv.printInventory();
     std::cout << "\n";
 
     // Create the player and a dragon enemy
-    std::cout << "=== Dragon Combat Test ===\n";
-    Player hero("Hero", 100, 15);
-    Dragon *drake = new Dragon("Fire Dragon", 120, 20);
+    std::cout << " === Dragon Combat Test ===\n";
+    Player hero(" Hero", 100, 15);
+    Dragon *drake = new Dragon(" Fire Dragon", 120, 20);
 
     for (int i = 0; i < 3; ++i)
         battleRound(hero, *drake);
     delete drake;
+
+    std::cout << "=== Potion Healing Test ===\n";
+    std::cout << "Before healing: " << hero.toString() << "\n";
+
+    potion->use();
+    hero.heal(potion->getHealAmount());
+
+    std::cout << "After healing: " << hero.toString() << "\n\n";
     std::cout << "\n";
 
     std::cout << " Polymorphic Enemy Combat \n";
@@ -82,21 +89,20 @@ int main()
     enemies.push_back(new Skeleton("Skeleton Knight", 50, 8, 5));
     enemies.push_back(new Dragon("Fire Dragon", 100, 15));
 
-
-// Run combat against each enemy
+    // Run combat against each enemy
     for (Enemy *e : enemies)
         battleRound(hero, *e);
 
-// Clean up dynamically allocated enemies
+    // Clean up dynamically allocated enemies
     for (Enemy *e : enemies)
         delete e;
     enemies.clear();
 
-    std::cout << "Final Inventory \n";
+    std::cout << " Final Inventory \n";
     inv.printInventory();
     std::cout << "\n";
 
-    std::cout << "Player Status \n";
+    std::cout << " Player Status \n";
     std::cout << hero.toString() << "\n";
 
     return 0;
