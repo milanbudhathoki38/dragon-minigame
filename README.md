@@ -32,10 +32,12 @@ The program simulates an RPG-style game where a player battles enemies and manag
 - operator overloading prevention via deleted copy constructor
 
 ## How to Compile and Run
-```bash
+## How to Compile and Run
+` ` `bash
+cd hw6
 g++ main.cpp -o game
 ./game
-```
+` ` `
 
 ## Sample Output
 - Inventory management with weight limit enforcement
